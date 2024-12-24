@@ -382,11 +382,11 @@ function lpStripe() {
   pop();
   
    
-   // noFill();
-    // stroke(255,255,255); // 하얀색 선
-    // strokeWeight(1); 
-    // strokeJoin(ROUND); // 선의 끝을 둥글게 설정   
-    // rotate(Angle);
+   noFill();
+    stroke(255,255,255); // 하얀색 선
+    strokeWeight(3); 
+    strokeJoin(ROUND); // 선의 끝을 둥글게 설정   
+    rotate(Angle);
     // arc(0, 0, 160, 160, -3-30, 3-30);
     // arc(0, 0, 180, 180, -4-30, 4-30);
     // arc(0, 0, 240, 240, -5-30, 5-30);
@@ -397,10 +397,12 @@ function lpStripe() {
     // 1도씩 왔다갔다 하도록 회전 각도 조정 (속도 감소)
     Angle += speed*0.3;
     // 회전 각도가 -1도에서 1도 사이를 왔다 갔다 하도록 반전
-    if (Angle >= 0.2 || Angle <= -0.2) {
+    if (Angle >= 0.4 || Angle <= -0.4) {
       speed = -speed; // 방향 반전
     }
+    
   }
+   noStroke();
   // 빛
     fill(255, 255, 255, 10);
     arc(0, 0, 350, 350, -30, 30);
@@ -409,8 +411,7 @@ function lpStripe() {
     fill(0, 0, 0, 5);
     arc(0, 0, 350, 350, 30, 150);
     arc(0, 0, 350, 350, 210, 330);
-  noStroke();
-
+ 
 }
 
 
@@ -502,5 +503,3 @@ function updateRotation(x, y) {
 function stopDragging() {
   isDragging = false;
 }
-
-
