@@ -163,7 +163,7 @@ function draw() {
 function setLPStyle() {
   if (Type === 0) {
     noStroke();
-    fill(5, 5, 5, 245); //검은색    
+    fill(0, 0, 0, 245); //검은색    
     ellipse(0, 0, 350, 350);   
     
   } else if (Type === 1) {
