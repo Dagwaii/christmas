@@ -27,7 +27,7 @@ let angleStep = 360 / stripeCount; // 각 스트라이프의 각도
 let strokeWeights = [];
 let opacities = [];
 let maxRadius = 175;  // 최대 반지름 (지름 350)
-let numCircles = 40;  // 그릴 원의 개수
+let numCircles = 30;  // 그릴 원의 개수
 let opacityUpdateInterval = 5;  // 오퍼시티 값을 갱신할 간격 (프레임 수 단위)
 
 // 텍스처로 사용할 점들
