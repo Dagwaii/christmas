@@ -134,7 +134,7 @@ function draw() {
     if (frameCount % opacityUpdateInterval === 0) {
       for (let s = 0; s < numCircles; s++) {
         opacities[s] += random(-30, 30);  // 오퍼시티를 -20에서 20 사이로 변화
-        opacities[s] = constrain(opacities[s], 0, 50);  // 오퍼시티 값을 0~255 사이로 제한
+        opacities[s] = constrain(opacities[s], 0, 80);  // 오퍼시티 값을 0~255 사이로 제한
       }
     }
   }
