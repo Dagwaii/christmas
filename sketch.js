@@ -208,18 +208,13 @@ function setLPStyle() {
     noStroke();
     fill('#0F8432');
     ellipse(0, 0, 350, 350); 
-        blendMode(SOFT_LIGHT);  
-    stroke(1);
-    strokeWeight(4);
-    stroke(0, 0, 0, 100);
-    noFill();
-    ellipse(0, 0, 345, 345); //라인
-    noStroke();
+  
       // 랜덤 색상 점들을 그리기
       for (let pt of texturePoints) {
     fill(pt.color);   
     ellipse(pt.x, pt.y, pt.size, pt.size);  // 점을 그리되 크기와 색상이 랜덤 
-
+    
+     
 
     }
     
