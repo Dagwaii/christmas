@@ -9,8 +9,6 @@ let inner;
 let urlInput;
 let closeButton;
 
-// 팝업창 활성화 여부
-let isPopupActive = false;
 
 let rotationAngle = 0;
 let Angle = 0; // 라이트 선 
@@ -112,17 +110,20 @@ function settingUI(){
 }
 
 function openPopup(){
-  popup.show();
+//  popup.show();
+    const popup = document.querySelector('.popup');
+    popup.classList.add('show');
 
-  document.getElementById('popup').style.display = 'block';
-  isPopupActive = true;
-
+    // Allow default touch actions when popup is shown
+    document.body.style.touchAction = 'auto';
 }
 function closePopup() {
- popup.hide();
+// popup.hide();
+    const popup = document.querySelector('.popup');
+    popup.classList.remove('show');
 
-  document.getElementById('popup').style.display = 'none';
-  isPopupActive = false;
+    // Disable default touch actions when popup is hidden
+    document.body.style.touchAction = 'none';
 }
 //여기까지 공유용 팝업 추가 끝
 
@@ -342,7 +343,7 @@ function setLabelStyle() {
    // stroke("orange");
    // strokeWeight(3);
       strokeCap(ROUND); 
-    arc(30,30,60,120)
+    //arc(30,30,60,120)
    //글자시작
     angleMode(DEGREES); // 각도를 도 단위로 사용
     //let angleStep = 360 / textString.length; // 각 글자 간의 각도
@@ -455,11 +456,6 @@ function mouseReleased() {
 
 // 모바일 터치 이벤트
 function touchStarted(event) {
-  // 팝업창 활성화 상태라면 기본 동작 허용
-    if (isPopupActive) {
-    return true;
-  }
-  
   // 입력창과 텍스트 영역에서는 기본 동작 허용
   if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
     return true;
@@ -477,11 +473,6 @@ function touchStarted(event) {
 }
 
 function touchMoved(event) {
-  // 팝업창 활성화 상태라면 기본 동작 허용
-    if (isPopupActive) {
-    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
-  }
-  
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
     event.preventDefault();
@@ -489,12 +480,8 @@ function touchMoved(event) {
 }
 
 function touchEnded(event) {
-    if (isPopupActive) {
-    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
-  }
   stopDragging();
 }
-
 
 function isInsideLP(x, y) {
   let d = dist(x, y, width / 2, height / 2);
