@@ -192,11 +192,11 @@ function setLPStyle() {
    blendMode(SOFT_LIGHT);
     stroke(1);
     strokeWeight(2);
-    stroke(0, 0, 0, 100);
+    stroke(0, 0, 0, 40);
     noFill();
     ellipse(0, 0, 340, 340); //라인
     ellipse(0, 0, 270, 270); //라인
-    //ellipse(0, 0, 170, 170); //라인
+    ellipse(0, 0, 170, 170); //라인
     noStroke();
     fill(0, 0, 0, 50);  
     ellipse(0, 0, 170, 170); // 제일 안쪽 어두운 영역
@@ -325,7 +325,7 @@ function setLabelStyle() {
     // ellipse(0, 0, 125, 125);
     fill('#22203D');
     ellipse(0, 0, 125, 125);
-        image(img3,-70,-70,140,140);
+    image(img3,-70,-70,140,140);
     // fill('#191843');
     // arc(0,0,122,122,0,180);
     // fill('#F11A63');
