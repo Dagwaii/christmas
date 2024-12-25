@@ -445,6 +445,7 @@ function mouseReleased() {
   stopDragging();
 }
 
+
 // 모바일 터치 이벤트
 function touchStarted() {
     // LP판 영역 터치
@@ -452,15 +453,21 @@ function touchStarted() {
   if (d > 50*lpScale && d < 170*lpScale) {
     changeType(1); // 스타일 변경
     }
-  return false;
   // LP 회전 영역 클릭 및 드래그 시작
  if (isInsideLP(touches[0].x, touches[0].y)) {
     startDragging(touches[0].x, touches[0].y);
   }
-  return false;
+  return false;   
+  
+// LP 영역 외에는 기본 동작 허용 추가
+    if (!isInsideLP(touches[0].x, touches[0].y)) {
+    return true; // 기본 동작 허용
+  }
+// LP 영역 외에는 기본 동작 허용 추가
 }
 
 function touchMoved() {
+
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
   }
@@ -468,6 +475,7 @@ function touchMoved() {
 }
 
  function touchEnded() {
+ 
   stopDragging();
   return false;
 }
