@@ -455,7 +455,7 @@ function touchStarted() {
  if (isInsideLP(touches[0].x, touches[0].y)) {
     startDragging(touches[0].x, touches[0].y);
   }
-  return false;
+ // return false;
 }
 
 function touchMoved() {
