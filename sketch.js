@@ -454,15 +454,14 @@ function touchStarted() {
     changeType(1); // 스타일 변경
     }
   // LP 회전 영역 클릭 및 드래그 시작
- if (isInsideLP(touches[0].x, touches[0].y)) {
-    startDragging(touches[0].x, touches[0].y);
-  }
-  return false;   
   
-// LP 영역 외에는 기본 동작 허용 추가
-    if (!isInsideLP(touches[0].x, touches[0].y)) {
+// LP 영역 외에는 기본 동작 허용 추가  
+ if (!isInsideLP(touches[0].x, touches[0].y)) {
     return true; // 기본 동작 허용
   }
+
+  startDragging(touches[0].x, touches[0].y);
+  return false;
 // LP 영역 외에는 기본 동작 허용 추가
 }
 
