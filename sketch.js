@@ -196,10 +196,10 @@ function setLPStyle() {
     noFill();
     ellipse(0, 0, 340, 340); //라인
     ellipse(0, 0, 270, 270); //라인
-    ellipse(0, 0, 170, 170); //라인
+    //ellipse(0, 0, 170, 170); //라인
 
     fill(0, 0, 0, 30);  
-    ellipse(0, 0, 140, 140); // 제일 안쪽 어두운 영역
+    ellipse(0, 0, 170, 170); // 제일 안쪽 어두운 영역
 
 
 }
@@ -383,9 +383,9 @@ function lpStripe() {
   
    
    noFill();
-    stroke(255,255,255); // 하얀색 선
-    strokeWeight(3); 
-    strokeJoin(ROUND); // 선의 끝을 둥글게 설정   
+    // stroke(255,255,255); // 하얀색 선
+    // strokeWeight(3); 
+    // strokeJoin(ROUND); // 선의 끝을 둥글게 설정   
     rotate(Angle);
     // arc(0, 0, 160, 160, -3-30, 3-30);
     // arc(0, 0, 180, 180, -4-30, 4-30);
