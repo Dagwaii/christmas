@@ -449,7 +449,7 @@ function mouseReleased() {
 // 모바일 터치 이벤트
 function touchStarted(event) {
   // 입력창과 텍스트 영역에서는 기본 동작 허용
-  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA'|| event.target.tagName === 'BUTTON') {
     return true;
   }
   // 팝업창 활성화 상태라면 기본 동작 허용
