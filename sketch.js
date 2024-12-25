@@ -177,6 +177,11 @@ function setLPStyle() {
     noStroke();
     fill('#BE2525');
     ellipse(0, 0, 350, 350); 
+              for (let dt of dustPoints) {
+    fill(dt.color);    
+    ellipse(dt.x, dt.y, dt.size, dt.size); 
+    }// 점을 그리되 크기와 색상이 랜덤 
+    
     
   } else if (Type === 2) {
     noStroke();
@@ -192,6 +197,11 @@ function setLPStyle() {
     noStroke();
     fill('#3F51B5');
     ellipse(0, 0, 350, 350);  
+              for (let dt of dustPoints) {
+    fill(dt.color);    
+    ellipse(dt.x, dt.y, dt.size, dt.size); 
+    }// 점을 그리되 크기와 색상이 랜덤 
+    
 
 
 
