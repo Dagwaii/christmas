@@ -66,6 +66,7 @@ function setup() {
   }
   // 텍스처 한 번만 생성
   RandomTexture(0, 0, 150); 
+  RandomDust(0,0,150);
   noStroke();
 }
 
@@ -164,7 +165,13 @@ function setLPStyle() {
   if (Type === 0) {
     noStroke();
     fill(0, 0, 0, 245); //검은색    
-    ellipse(0, 0, 350, 350);   
+    ellipse(0, 0, 350, 350);
+    
+    // 랜덤 색상 점들을 그리기
+          for (let dt of dustPoints) {
+    fill(dt.color);    
+    ellipse(dt.x, dt.y, dt.size, dt.size); 
+    }// 점을 그리되 크기와 색상이 랜덤 
     
   } else if (Type === 1) {
     noStroke();
@@ -209,7 +216,7 @@ function RandomTexture(x, y, r) {
   texturePoints = [];  // 이전 점들을 초기화
     angleMode(RADIANS);
   // 원 내부에 랜덤한 점들을 생성
-  for (let i = 0; i < 600; i++) {  // 1000개의 점을 생성
+  for (let i = 0; i < 600; i++) {  // 600개의 점을 생성
     // 랜덤한 각도와 반지름을 계산
     let angle = random(TWO_PI);
     let radius = random(r);
@@ -225,6 +232,30 @@ function RandomTexture(x, y, r) {
 
     // 점을 배열에 저장
     texturePoints.push({x: nx, y: ny, color: colorValue, size: size});
+  }
+}
+
+function RandomDust(x, y, r) {
+  
+  dustPoints = [];  // 이전 점들을 초기화
+    angleMode(RADIANS);
+  // 원 내부에 랜덤한 점들을 생성
+  for (let i = 0; i < 50; i++) {  // ~개의 점을 생성
+    // 랜덤한 각도와 반지름을 계산
+    let angle = random(TWO_PI);
+    let radius = random(r);
+    
+    // 점의 좌표 계산
+    let nx = x + cos(angle) * radius;
+    let ny = y + sin(angle) * radius;
+
+    // 랜덤 색상과 크기를 생성
+    // 녹색 계열의 색상과 랜덤 크기를 생성
+    let colorValue = color(255, 255, 255, random(50, 200));  
+    let size = 1;  // 점의 크기
+
+    // 점을 배열에 저장
+    dustPoints.push({x: nx, y: ny, color: colorValue, size: size});
   }
 }
 
