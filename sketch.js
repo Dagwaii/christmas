@@ -368,7 +368,7 @@ function lpStripe() {
   blendMode(SOFT_LIGHT);
   strokeCap(ROUND);  // 선의 끝을 둥글게 설정
   //noFill();
-  fill(0,0,0,10);
+  fill(0,0,0,6);
   // 원을 차곡차곡 그리기
   for (let s = 1; s <= numCircles; s++) {
     let radius = map(s, 1, numCircles, 10, maxRadius);  // 원의 반지름을 점차적으로 증가시킴
