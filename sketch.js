@@ -425,6 +425,9 @@ function mousePressed() {
     changeType(1); // 스타일 변경
     }
   
+ //  if (mouseX > 25 && mouseX < 475 && mouseY > 25 && mouseY < 475) {
+ //   changeType(1); // 스타일 변경
+//  } 
   
   // LP 회전 영역 클릭 및 드래그 시작
   if (isInsideLP(mouseX, mouseY)) {
@@ -444,6 +447,10 @@ function mouseReleased() {
 
 // 모바일 터치 이벤트
 function touchStarted() {
+    // LP판 영역 터치
+ // if (touches[0].x > 25 && touches[0].y < 475 && touches[0].y >25 && touches[0].y < 475) {
+ //    changeType(1); // 스타일 변경
+ //  }
 
   let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
   if (d > 50*lpScale && d < 170*lpScale) {
