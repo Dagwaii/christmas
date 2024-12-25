@@ -16,9 +16,8 @@ canvas {
 
 }
 
-input,textarea,
-select {
-    font-size: 16px;
+input{
+
   margin-top:20px;
   height:30px;
   width:400px;
