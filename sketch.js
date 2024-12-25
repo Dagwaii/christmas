@@ -198,7 +198,7 @@ function setLPStyle() {
     ellipse(0, 0, 270, 270); //라인
     //ellipse(0, 0, 170, 170); //라인
     noStroke();
-    fill(0, 0, 0, 30);  
+    fill(0, 0, 0, 50);  
     ellipse(0, 0, 170, 170); // 제일 안쪽 어두운 영역
 
 
