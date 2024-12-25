@@ -61,8 +61,8 @@ function setup() {
   
   // 각 원의 선 두께와 오퍼시티 초기화
   for (let s = 0; s < numCircles; s++) {
-    strokeWeights[s] = random(1, 4);  // strokeWeight를 1, 2, 3 중 랜덤으로 설정
-    opacities[s] = random(10, 20);    // 오퍼시티 값을 30~80 사이로 랜덤 설정
+    strokeWeights[s] = random(2, 4);  // strokeWeight를 1, 2, 3 중 랜덤으로 설정
+    opacities[s] = random(10, 80);    // 오퍼시티 값을 30~80 사이로 랜덤 설정
   }
   // 텍스처 한 번만 생성
   RandomTexture(0, 0, 150); 
@@ -133,8 +133,8 @@ function draw() {
   if (!mouseIsPressed) {
     if (frameCount % opacityUpdateInterval === 0) {
       for (let s = 0; s < numCircles; s++) {
-        opacities[s] += random(-20, 20);  // 오퍼시티를 -20에서 20 사이로 변화
-        opacities[s] = constrain(opacities[s], 0, 80);  // 오퍼시티 값을 0~255 사이로 제한
+        opacities[s] += random(-40, 40);  // 오퍼시티를 -20에서 20 사이로 변화
+        opacities[s] = constrain(opacities[s], 0, 120);  // 오퍼시티 값을 0~255 사이로 제한
       }
     }
   }
@@ -189,9 +189,10 @@ function setLPStyle() {
 
 
   }  
+   blendMode(SOFT_LIGHT);
     stroke(1);
     strokeWeight(2);
-    stroke(0, 0, 0, 30);
+    stroke(0, 0, 0, 100);
     noFill();
     ellipse(0, 0, 340, 340); //라인
     ellipse(0, 0, 270, 270); //라인
