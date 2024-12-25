@@ -179,7 +179,6 @@ function setLPStyle() {
     noFill();
     ellipse(0, 0, 340, 340); //라인
     ellipse(0, 0, 270, 270); //라인
-       strokeWeight(1);
     ellipse(0, 0, 170, 170); //라인
     noStroke();
     
