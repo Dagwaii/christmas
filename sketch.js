@@ -450,7 +450,7 @@ function touchStarted() {
   if (d > 50*lpScale && d < 170*lpScale) {
     changeType(1); // 스타일 변경
     }
-     return false;
+
   
   // LP 회전 영역 클릭 및 드래그 시작
  if (isInsideLP(touches[0].x, touches[0].y)) {
