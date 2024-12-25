@@ -9,6 +9,8 @@ let inner;
 let urlInput;
 let closeButton;
 
+// 팝업창 활성화 여부
+let isPopupActive = false;
 
 let rotationAngle = 0;
 let Angle = 0; // 라이트 선 
@@ -448,6 +450,11 @@ function mouseReleased() {
 
 // 모바일 터치 이벤트
 function touchStarted(event) {
+  // 팝업창 활성화 상태라면 기본 동작 허용
+    if (isPopupActive) {
+    return true;
+  }
+  
   // 입력창과 텍스트 영역에서는 기본 동작 허용
   if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
     return true;
@@ -465,6 +472,11 @@ function touchStarted(event) {
 }
 
 function touchMoved(event) {
+  // 팝업창 활성화 상태라면 기본 동작 허용
+    if (isPopupActive) {
+    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+  }
+  
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
     event.preventDefault();
@@ -472,7 +484,19 @@ function touchMoved(event) {
 }
 
 function touchEnded(event) {
+    if (isPopupActive) {
+    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+  }
   stopDragging();
+}
+
+// 팝업창 활성화 상태를 변경하는 함수
+function showPopup() {
+  isPopupActive = true;
+}
+
+function hidePopup() {
+  isPopupActive = false;
 }
 
 function isInsideLP(x, y) {
