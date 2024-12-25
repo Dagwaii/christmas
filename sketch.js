@@ -172,13 +172,14 @@ function setLPStyle() {
     fill(dt.color);    
     ellipse(dt.x, dt.y, dt.size, dt.size); 
     }// 점을 그리되 크기와 색상이 랜덤 
-     blendMode(SOFT_LIGHT);
     stroke(1);
     strokeWeight(2);
-    stroke(255, 255, 255, 230);
+    stroke(255, 255, 255,50);
     noFill();
     ellipse(0, 0, 340, 340); //라인
+        stroke(255, 255, 255,30);
     ellipse(0, 0, 270, 270); //라인
+        stroke(255, 255, 255,50);
     ellipse(0, 0, 170, 170); //라인
     noStroke();
     
