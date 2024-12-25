@@ -174,7 +174,7 @@ function setLPStyle() {
     }// 점을 그리되 크기와 색상이 랜덤 
     stroke(1);
     strokeWeight(2);
-    stroke(255, 255, 255,50);
+    stroke(255, 255, 255,90);
     noFill();
     ellipse(0, 0, 340, 340); //라인
         stroke(255, 255, 255,30);
