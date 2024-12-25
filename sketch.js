@@ -114,10 +114,15 @@ function settingUI(){
 function openPopup(){
   popup.show();
 
+  document.getElementById('popup').style.display = 'block';
+  isPopupActive = true;
+
 }
 function closePopup() {
  popup.hide();
 
+  document.getElementById('popup').style.display = 'none';
+  isPopupActive = false;
 }
 //여기까지 공유용 팝업 추가 끝
 
@@ -490,14 +495,6 @@ function touchEnded(event) {
   stopDragging();
 }
 
-// 팝업창 활성화 상태를 변경하는 함수
-function showPopup() {
-  isPopupActive = true;
-}
-
-function hidePopup() {
-  isPopupActive = false;
-}
 
 function isInsideLP(x, y) {
   let d = dist(x, y, width / 2, height / 2);
