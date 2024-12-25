@@ -8,7 +8,7 @@ let popup;
 let inner;
 let urlInput;
 let closeButton;
-
+let isPopupActive = false; // 팝업창 활성화 여부
 
 let rotationAngle = 0;
 let Angle = 0; // 라이트 선 
@@ -110,20 +110,12 @@ function settingUI(){
 }
 
 function openPopup(){
-//  popup.show();
-    const popup = document.querySelector('.popup');
-    popup.classList.add('show');
-
-    // Allow default touch actions when popup is shown
-    document.body.style.touchAction = 'auto';
+  popup.show();
+ isPopupActive = true;
 }
 function closePopup() {
-// popup.hide();
-    const popup = document.querySelector('.popup');
-    popup.classList.remove('show');
-
-    // Disable default touch actions when popup is hidden
-    document.body.style.touchAction = 'none';
+  popup.hide();  
+  isPopupActive = false;
 }
 //여기까지 공유용 팝업 추가 끝
 
@@ -460,7 +452,11 @@ function touchStarted(event) {
   if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
     return true;
   }
-
+  // 팝업창 활성화 상태라면 기본 동작 허용
+  if (isPopupActive) {
+    return true;
+  }
+  
   let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
   if (d > 50 * lpScale && d < 170 * lpScale) {
     changeType(1); // 스타일 변경
@@ -473,6 +469,11 @@ function touchStarted(event) {
 }
 
 function touchMoved(event) {
+
+    if (isPopupActive) {
+    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+  }
+  
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
     event.preventDefault();
@@ -480,6 +481,9 @@ function touchMoved(event) {
 }
 
 function touchEnded(event) {
+    if (isPopupActive) {
+    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+  }
   stopDragging();
 }
 
