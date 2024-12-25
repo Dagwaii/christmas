@@ -423,11 +423,7 @@ function mousePressed() {
   let d = dist(width / 2, height / 2, mouseX, mouseY);
   if (d < 170*lpScale) {
     changeType(1); // 스타일 변경
-    }
-  
- //  if (mouseX > 25 && mouseX < 475 && mouseY > 25 && mouseY < 475) {
- //   changeType(1); // 스타일 변경
-//  } 
+    }  
   
   // LP 회전 영역 클릭 및 드래그 시작
   if (isInsideLP(mouseX, mouseY)) {
@@ -445,61 +441,57 @@ function mouseReleased() {
   stopDragging();
 }
 
-// 모바일 터치 이벤트
-function touchStarted() {
-    // LP판 영역 터치
- // if (touches[0].x > 25 && touches[0].y < 475 && touches[0].y >25 && touches[0].y < 475) {
- //    changeType(1); // 스타일 변경
- //  }
 
-  let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
-  if (d > 50*lpScale && d < 170*lpScale) {
-    changeType(1); // 스타일 변경
-    }
+// // 모바일 터치 이벤트
+// function touchStarted() {
+//   let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
+//   if (d > 50*lpScale && d < 170*lpScale) {
+//     changeType(1); // 스타일 변경
+//     }
   
-  // LP 회전 영역 클릭 및 드래그 시작
- if (isInsideLP(touches[0].x, touches[0].y)) {
-    startDragging(touches[0].x, touches[0].y);
-  }
- // return false;
-}
+//   // LP 회전 영역 클릭 및 드래그 시작
+//  if (isInsideLP(touches[0].x, touches[0].y)) {
+//     startDragging(touches[0].x, touches[0].y);
+//   }
+//   return false;
+// }
 
-function touchMoved() {
-  if (isDragging) {
-    updateRotation(touches[0].x, touches[0].y);
-  }
- // return false;
-}
+// function touchMoved() {
+//   if (isDragging) {
+//     updateRotation(touches[0].x, touches[0].y);
+//   }
+//   return false;
+// }
 
- function touchEnded() {
-  stopDragging();
-//  return false;
-}
+//  function touchEnded() {
+//   stopDragging();
+//   return false;
+// }
 
-// LP 영역 안에 있는지 확인
-function isInsideLP(x, y) {
-  let d = dist(x, y, width / 2, height / 2);
-  return d < 600/2;
-}
+// // LP 영역 안에 있는지 확인
+// function isInsideLP(x, y) {
+//   let d = dist(x, y, width / 2, height / 2);
+//   return d < 600/2;
+// }
 
-// 스타일 변경
-function changeType(direction) {
-  Type = (Type + direction + 4) % 4; // 4가지 스타일 순환
-}
+// // 스타일 변경
+// function changeType(direction) {
+//   Type = (Type + direction + 4) % 4; // 4가지 스타일 순환
+// }
 
-// 드래그 시작
-function startDragging(x, y) {
-  isDragging = true;
-  dragStartAngle = atan2(y - height / 2, x - width / 2) - rotationAngle;
-}
+// // 드래그 시작
+// function startDragging(x, y) {
+//   isDragging = true;
+//   dragStartAngle = atan2(y - height / 2, x - width / 2) - rotationAngle;
+// }
 
-// 회전 업데이트
-function updateRotation(x, y) {
-  let currentAngle = atan2(y - height / 2, x - width / 2);
-  rotationAngle = currentAngle - dragStartAngle;
-}
+// // 회전 업데이트
+// function updateRotation(x, y) {
+//   let currentAngle = atan2(y - height / 2, x - width / 2);
+//   rotationAngle = currentAngle - dragStartAngle;
+// }
 
-// 드래그 종료
-function stopDragging() {
- // isDragging = false;
-}
+// // 드래그 종료
+// function stopDragging() {
+//   isDragging = false;
+// }
