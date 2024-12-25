@@ -461,19 +461,19 @@ function touchStarted() {
  if (isInsideLP(touches[0].x, touches[0].y)) {
     startDragging(touches[0].x, touches[0].y);
   }
-  return false;
+ // return false;
 }
 
 function touchMoved() {
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
   }
-  return false;
+ // return false;
 }
 
  function touchEnded() {
   stopDragging();
-  return false;
+//  return false;
 }
 
 // LP 영역 안에 있는지 확인
@@ -501,5 +501,5 @@ function updateRotation(x, y) {
 
 // 드래그 종료
 function stopDragging() {
-  isDragging = false;
+ // isDragging = false;
 }
