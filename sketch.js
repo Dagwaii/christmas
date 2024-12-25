@@ -12,7 +12,7 @@ let closeButton;
 
 let rotationAngle = 0;
 let Angle = 0; // 라이트 선 
-let isDragging = false;
+//let isDragging = false;
 let dragStartAngle = 0;
 let Type = 0;
 let speed = 0.2; // 속도를 0.5로 설정하여 느리게 회전하도록
