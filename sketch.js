@@ -447,58 +447,53 @@ function mouseReleased() {
 
 
 // 모바일 터치 이벤트
-function touchStarted() {
-    // LP판 영역 터치
-  let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
-  if (d > 50*lpScale && d < 170*lpScale) {
-    changeType(1); // 스타일 변경
-    }
-  // LP 회전 영역 클릭 및 드래그 시작
+function touchStarted(event) {
+  // 입력창과 텍스트 영역에서는 기본 동작 허용
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+    return true;
+  }
 
-  //return false; 대신 preventDefault()로 제어
+  let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
+  if (d > 50 * lpScale && d < 170 * lpScale) {
+    changeType(1); // 스타일 변경
+  }
+
   if (isInsideLP(touches[0].x, touches[0].y)) {
     startDragging(touches[0].x, touches[0].y);
-    event.preventDefault(); // 기본 동작 방지
+    event.preventDefault(); // LP 영역에서만 기본 동작 방지
   }
 }
 
-function touchMoved() {
-
+function touchMoved(event) {
   if (isDragging) {
     updateRotation(touches[0].x, touches[0].y);
-    event.preventDefault(); // 기본 동작 방지
+    event.preventDefault();
   }
 }
 
- function touchEnded() { 
+function touchEnded(event) {
   stopDragging();
-
 }
 
-// LP 영역 안에 있는지 확인
 function isInsideLP(x, y) {
   let d = dist(x, y, width / 2, height / 2);
-  return d < 600/2;
+  return d < 600 / 2; // LP 영역 내에서만 true 반환
 }
 
-// 스타일 변경
 function changeType(direction) {
   Type = (Type + direction + 4) % 4; // 4가지 스타일 순환
 }
 
-// 드래그 시작
 function startDragging(x, y) {
   isDragging = true;
   dragStartAngle = atan2(y - height / 2, x - width / 2) - rotationAngle;
 }
 
-// 회전 업데이트
 function updateRotation(x, y) {
   let currentAngle = atan2(y - height / 2, x - width / 2);
   rotationAngle = currentAngle - dragStartAngle;
 }
 
-// 드래그 종료
 function stopDragging() {
   isDragging = false;
 }
