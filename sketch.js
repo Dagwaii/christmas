@@ -371,7 +371,7 @@ function lpStripe() {
   fill(0,0,0,6);
   // 원을 차곡차곡 그리기
   for (let s = 1; s <= numCircles; s++) {
-    let radius = map(s, 1, numCircles, 10, maxRadius);  // 원의 반지름을 점차적으로 증가시킴
+    let radius = map(s, 1, numCircles, 170, maxRadius);  // 원의 반지름을 점차적으로 증가시킴
     let randomColor = color(205, 205, 205, opacities[s - 1]);  // 랜덤 색상과 투명도 생성
     
     stroke(randomColor);  // 선 색상 설정
