@@ -166,13 +166,7 @@ function setLPStyle() {
     noStroke();
     fill(0, 0, 0, 245); //검은색    
     ellipse(0, 0, 350, 350);
-    
-    // 랜덤 색상 점들을 그리기
-          for (let dt of dustPoints) {
-    fill(dt.color);    
-    ellipse(dt.x, dt.y, dt.size, dt.size); 
-    }// 점을 그리되 크기와 색상이 랜덤 
-    stroke(1);
+        stroke(1);
     strokeWeight(2);
     stroke(255, 255, 255,90);
     noFill();
@@ -181,36 +175,69 @@ function setLPStyle() {
     ellipse(0, 0, 270, 270); //라인
         stroke(255, 255, 255,50);
     ellipse(0, 0, 170, 170); //라인
-    noStroke();
+        noStroke();
+    // 랜덤 색상 점들을 그리기
+          for (let dt of dustPoints) {
+    fill(dt.color);    
+    ellipse(dt.x, dt.y, dt.size, dt.size); 
+    }// 점을 그리되 크기와 색상이 랜덤 
+
+
     
   } else if (Type === 1) {
     noStroke();
     fill('#BE2525');
     ellipse(0, 0, 350, 350); 
-              for (let dt of dustPoints) {
-    fill(dt.color);    
-    ellipse(dt.x, dt.y, dt.size, dt.size); 
-    }// 점을 그리되 크기와 색상이 랜덤 
+        noFill();
+        blendMode(SOFT_LIGHT);  
+    stroke(1);
+    strokeWeight(4);
+    stroke(0, 0, 0, 160);
+
+    ellipse(0, 0, 345, 345); //라인
+        noStroke();
+    
+    //           for (let dt of dustPoints) {
+    // fill(dt.color);    
+    // ellipse(dt.x, dt.y, dt.size, dt.size); 
+    // }// 점을 그리되 크기와 색상이 랜덤 
+
     
     
   } else if (Type === 2) {
     noStroke();
     fill('#0F8432');
     ellipse(0, 0, 350, 350); 
+        blendMode(SOFT_LIGHT);  
+    stroke(1);
+    strokeWeight(4);
+    stroke(0, 0, 0, 160);
+    noFill();
+    ellipse(0, 0, 345, 345); //라인
+    noStroke();
       // 랜덤 색상 점들을 그리기
       for (let pt of texturePoints) {
-    fill(pt.color);    
+    fill(pt.color);   
     ellipse(pt.x, pt.y, pt.size, pt.size);  // 점을 그리되 크기와 색상이 랜덤 
+
+
     }
     
   } else if (Type === 3) {
     noStroke();
     fill('#3F51B5');
     ellipse(0, 0, 350, 350);  
-              for (let dt of dustPoints) {
-    fill(dt.color);    
-    ellipse(dt.x, dt.y, dt.size, dt.size); 
-    }// 점을 그리되 크기와 색상이 랜덤 
+    //           for (let dt of dustPoints) {
+    // fill(dt.color);    
+    // ellipse(dt.x, dt.y, dt.size, dt.size); 
+    // }// 점을 그리되 크기와 색상이 랜덤 
+            blendMode(SOFT_LIGHT);  
+    stroke(1);
+    strokeWeight(4);
+    stroke(0, 0, 0, 160);
+    noFill();
+    ellipse(0, 0, 345, 345); //라인
+    noStroke();
     
 
 
