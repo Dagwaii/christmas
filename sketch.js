@@ -211,7 +211,7 @@ function setLPStyle() {
         blendMode(SOFT_LIGHT);  
     stroke(1);
     strokeWeight(4);
-    stroke(0, 0, 0, 160);
+    stroke(0, 0, 0, 100);
     noFill();
     ellipse(0, 0, 345, 345); //라인
     noStroke();
@@ -234,7 +234,7 @@ function setLPStyle() {
             blendMode(SOFT_LIGHT);  
     stroke(1);
     strokeWeight(4);
-    stroke(0, 0, 0, 160);
+    stroke(0, 0, 0, 100);
     noFill();
     ellipse(0, 0, 345, 345); //라인
     noStroke();
