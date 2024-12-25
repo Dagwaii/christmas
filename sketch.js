@@ -453,68 +453,68 @@ function mouseReleased() {
 }
 
 
-// 모바일 터치 이벤트
-function touchStarted(event) {
-  // 팝업창 활성화 상태라면 기본 동작 허용
-    if (isPopupActive) {
-    return true;
-  }
+// // 모바일 터치 이벤트
+// function touchStarted(event) {
+//   // 팝업창 활성화 상태라면 기본 동작 허용
+//     if (isPopupActive) {
+//     return true;
+//   }
   
-  // 입력창과 텍스트 영역에서는 기본 동작 허용
-  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-    return true;
-  }
+//   // 입력창과 텍스트 영역에서는 기본 동작 허용
+//   if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+//     return true;
+//   }
 
-  let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
-  if (d > 50 * lpScale && d < 170 * lpScale) {
-    changeType(1); // 스타일 변경
-  }
+//   let d = dist(width / 2, height / 2, touches[0].x, touches[0].y);
+//   if (d > 50 * lpScale && d < 170 * lpScale) {
+//     changeType(1); // 스타일 변경
+//   }
 
-  if (isInsideLP(touches[0].x, touches[0].y)) {
-    startDragging(touches[0].x, touches[0].y);
-    event.preventDefault(); // LP 영역에서만 기본 동작 방지
-  }
-}
+//   if (isInsideLP(touches[0].x, touches[0].y)) {
+//     startDragging(touches[0].x, touches[0].y);
+//     event.preventDefault(); // LP 영역에서만 기본 동작 방지
+//   }
+// }
 
-function touchMoved(event) {
-  // 팝업창 활성화 상태라면 기본 동작 허용
-    if (isPopupActive) {
-    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
-  }
+// function touchMoved(event) {
+//   // 팝업창 활성화 상태라면 기본 동작 허용
+//     if (isPopupActive) {
+//     return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+//   }
   
-  if (isDragging) {
-    updateRotation(touches[0].x, touches[0].y);
-    event.preventDefault();
-  }
-}
+//   if (isDragging) {
+//     updateRotation(touches[0].x, touches[0].y);
+//     event.preventDefault();
+//   }
+// }
 
-function touchEnded(event) {
-    if (isPopupActive) {
-    return true; // 팝업창 활성화 상태에서는 기본 동작 허용
-  }
-  stopDragging();
-}
+// function touchEnded(event) {
+//     if (isPopupActive) {
+//     return true; // 팝업창 활성화 상태에서는 기본 동작 허용
+//   }
+//   stopDragging();
+// }
 
 
-function isInsideLP(x, y) {
-  let d = dist(x, y, width / 2, height / 2);
-  return d < 600 / 2; // LP 영역 내에서만 true 반환
-}
+// function isInsideLP(x, y) {
+//   let d = dist(x, y, width / 2, height / 2);
+//   return d < 600 / 2; // LP 영역 내에서만 true 반환
+// }
 
-function changeType(direction) {
-  Type = (Type + direction + 4) % 4; // 4가지 스타일 순환
-}
+// function changeType(direction) {
+//   Type = (Type + direction + 4) % 4; // 4가지 스타일 순환
+// }
 
-function startDragging(x, y) {
-  isDragging = true;
-  dragStartAngle = atan2(y - height / 2, x - width / 2) - rotationAngle;
-}
+// function startDragging(x, y) {
+//   isDragging = true;
+//   dragStartAngle = atan2(y - height / 2, x - width / 2) - rotationAngle;
+// }
 
-function updateRotation(x, y) {
-  let currentAngle = atan2(y - height / 2, x - width / 2);
-  rotationAngle = currentAngle - dragStartAngle;
-}
+// function updateRotation(x, y) {
+//   let currentAngle = atan2(y - height / 2, x - width / 2);
+//   rotationAngle = currentAngle - dragStartAngle;
+// }
 
-function stopDragging() {
-  isDragging = false;
-}
+// function stopDragging() {
+//   isDragging = false;
+// }
